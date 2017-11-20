@@ -7,6 +7,9 @@ body {
     background-color: #eeeeee;
     overflow-x: hidden;
 }
+.navbar{
+  background-color: #1c1c1c important;
+}
 .sticky {
     overflow: hidden;
 }
@@ -398,6 +401,9 @@ select {
     align-items: center;
     white-space: pre;
     -webkit-rtl-ordering: logical;
+}
+.dropdown:hover .dropdown-menu{
+  display: block;
 }
 select:not(:-internal-list-box) {
     overflow: visible !important;

@@ -8,7 +8,7 @@
     </p>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
+        <ul class="menu mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -28,12 +28,8 @@
             <!--          <li class="nav-item">-->
             <!--            <a class="nav-link disabled" href="#">Disabled</a>-->
             <!--          </li>-->
-            <li class="nav-item dropdown">
-
-                <a class="nav-link dropdown" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $cat_name ?></a>
-
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-
+            <li><a href="#s1"><?php echo $cat_name ?></a>
+                  <ul class="submenu">
                     <?php
                     $query = " SELECT * FROM sub_categories WHERE cat_id = $cat_id ";
                     $select_all_sub_category = mysqli_query($connection,$query);
@@ -42,11 +38,16 @@
                         $sub_cat_id = $row['sub_cat_id'];
                         $sub_cat_name = $row['sub_cat_name'];
                         ?>
-                        <a class="dropdown-item" href="#"><?php echo $sub_cat_name ?></a>
-                    <?php } ?>
-                </div>
-                <?php } ?>
-            </li>
+                      <li><a href="#"><?php echo $sub_cat_name ?></a></li>
+                      <?php } ?>
+                  </ul>
+              </li>
+              <?php } ?>
+
+
+
+
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">

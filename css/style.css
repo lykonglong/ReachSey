@@ -52,22 +52,32 @@ li {
 ul, ol {
     padding: 0;
     margin: 0;
-    list-style: none;
+    list-style:none;
 }
-
-ul, menu, dir {
+.leftbar li:hover {
+    background-color: #F8FCFE;
+}
+.leftbar ul{
     display: block;
-    list-style-type: disc;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
+    list-style-type:none;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
-    -webkit-padding-start: 40px;
+    -webkit-padding-start: 0px;
 }
-ul, ol {
-    padding: 0;
-    margin: 0;
-    list-style: none;
+.leftbar li{
+  padding-left: 10px;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+.leftbar h3{
+  font-size: 0.8em;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight:normal;
 }
 
 .sticky p {
@@ -77,18 +87,68 @@ ul, ol {
 .sticky img {
     float: left;
     margin: 8px 0 0 -120px;
-    max-width: 100px;
+    max-width: 100%;
     max-height: 70px;
 }
 #sidebar{
     padding-right: 0px;
     padding-left: 0px;
 }
+.leftbar{
+  clear: both;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
 .leftbar img{
     float: left;
 
     max-width: 100px;
     max-height: 70px;
+}
+.d_tags {
+    padding: 12px 10px 15px 10px;
+}
+.d_tags a:nth-child(9n) {
+	background-color:#4a4a4a
+}
+.d_tags a:nth-child(9n+1) {
+	background-color:#15a287
+}
+.d_tags a:nth-child(9n+2) {
+	background-color:#5cb85c
+}
+.d_tags a:nth-child(9n+3) {
+	background-color:#d9534f
+}
+.d_tags a:nth-child(9n+4) {
+	background-color:#567e95
+}
+.d_tags a:nth-child(9n+5) {
+	background-color:#b433ff
+}
+.d_tags a:nth-child(9n+6) {
+	background-color:#866161
+}
+.d_tags a:nth-child(9n+7) {
+	background-color:#b37333
+}
+.d_tags a:nth-child(9n+8) {
+	background-color:#f60
+}
+.d_tags a {
+    font-size: 12px;
+    opacity: .7;
+    filter: alpha(opacity=80);
+    color: #FFFFFF;
+    background-color: #FFFFFF;
+    display: inline-block;
+    margin: 2px 5px 5px 0;
+    padding: 4px 4px;
+    line-height: 21px;
+}
+.d_tags a:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
 }
 img {
     max-width: 100%;
@@ -279,7 +339,7 @@ p {
 }
 p {
     display: block;
-    -webkit-margin-before: 1em;
+    -webkit-margin-before: 0.5em;
     -webkit-margin-after: 1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;

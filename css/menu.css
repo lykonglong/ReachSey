@@ -45,7 +45,7 @@ This stylesheet and the associated (x)html may be modified in any way to fit you
 }
 .menu a {
     border-left: 3px solid rgba(0, 0, 0, 0);
-    color: #808080;
+    color: white;
     display: block;
     font-family: 'Lucida Console';
     font-size: 12px;

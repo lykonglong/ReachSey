@@ -103,7 +103,14 @@
                 </span>
                   </p>
                   <p class="note no-break-out">
-                    <?= $post_desc; ?></p>
+                    <?php
+                      if(strlen($post_desc)<=200){
+                        echo $post_desc;
+                      }else{
+                        $shorten= substr($post_desc,0,200). '... ';
+                        echo $shorten;
+                      }
+                  ?></p>
                 </article>
                 <?php
               }

@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once 'includes/db.php';
-//include_once 'pages/include/function.php';
+include 'includes/db.php';
+include 'pages/include/function.php';
 ?>
 <!DOCTYPE html>
 <html>

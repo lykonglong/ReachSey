@@ -18,7 +18,7 @@
 <section class="content-header">
     <h1>
         Posts Management Page
-        <a href="?action=add_movie"><i style="font-size: large;" class="fa fa-plus">&nbsp;Add Posts</i></a>
+        <a href="?action=add_post"><i style="font-size: large;" class="fa fa-plus">&nbsp;Add Posts</i></a>
         <!--<small>Preview page</small>-->
 
         <!-- Modal -->

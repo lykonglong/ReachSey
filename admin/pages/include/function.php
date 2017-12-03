@@ -12,14 +12,24 @@ function decryptIt( $q ) {
     return( $qDecoded );
 }
 
+function getSub_Category(){
+    global $connection;
+    $select_sub_category="SELECT * FROM sub_categories";
+    $run_select_category = mysqli_query($connection,$select_sub_category);
+    while($row_member = mysqli_fetch_assoc($run_select_category)) {
+        $sub_cat_id = $row_member['sub_cat_id'];
+        $sub_cat_name = $row_member['sub_cat_name'];
+        echo "<option value=\"$sub_cat_id\">$sub_cat_name</option>";
+    }
+}
 function getCategory(){
     global $connection;
-    $select_category="SELECT * FROM sub_categories";
+    $select_category="SELECT * FROM categories";
     $run_select_category = mysqli_query($connection,$select_category);
     while($row_member = mysqli_fetch_assoc($run_select_category)) {
         $cat_id = $row_member['cat_id'];
-        $sub_cat_name = $row_member['sub_cat_name'];
-        echo "<option value=\"$cat_id\">$sub_cat_name</option>";
+        $cat_name = $row_member['cat_name'];
+        echo "<option value=\"$cat_id\">$cat_name</option>";
     }
 }
 

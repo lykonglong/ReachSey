@@ -1,13 +1,13 @@
 <?php
 /* Database connection start */
 include '../../_config_inc.php';
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "reachsey";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname) or die("Connection failed: " . mysqli_connect_error());
-
 
 // storing  request (ie, get/post) global array to a variable
 $requestData= $_REQUEST;
@@ -63,10 +63,10 @@ while( $row=mysqli_fetch_array($query) ) {  // preparing an array
     }
 
 	$nestedData[] = $row["post_view"];
-	$nestedData[] = '<img src="'.BASE_URL.'/dist/img/'.$row["post_image"].'" class="img-responsive" alt="'.$row["post_image"].'" style="height: 30px;">';
-	$nestedData[]= '<a href="movie.php?action=view_movie&view='.$row["post_id"].'" class="btn btn-info btn-flat btn-sm"><i class="fa fa-eye"></i> View</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="movie.php?action=edit_movie&edit='.$row["post_id"].'" class="btn btn-success btn-flat btn-sm"><i class="fa fa-edit"></i> Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="movie.php?trash='.$row["post_id"].'" onclick="return confirm(\'Are your sure?\')"  class="btn btn-danger btn-flat btn-sm"><i class="fa fa-trash-o"></i> Trash</a>';
+	$nestedData[] = '<img src="'.BASE_URL.'../../img/'.$row["post_image"].'" class="img-responsive" alt="'.$row["post_image"].'" style="height: 30px;">';
+	$nestedData[]= '<a href="posts.php?action=view_posts&view='.$row["post_id"].'" class="btn btn-info btn-flat btn-sm"><i class="fa fa-eye"></i> View</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="posts.php?action=edit_post&edit='.$row["post_id"].'" class="btn btn-success btn-flat btn-sm"><i class="fa fa-edit"></i> Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="posts.php?trash='.$row["post_id"].'" onclick="return confirm(\'Are your sure?\')"  class="btn btn-danger btn-flat btn-sm"><i class="fa fa-trash-o"></i> Trash</a>';
 	$data[] = $nestedData;
 }
 

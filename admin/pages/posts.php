@@ -42,17 +42,17 @@ if($_SESSION['user_id'])
                 $source='';
             }
             switch($source){
-                case 'edit_movie';
-                    include "include/edit_movie.php";
+                case 'edit_post';
+                    include "include/edit_post.php";
                     break;
-                case 'view_movie';
-                    include "include/view_movie.php";
+                case 'view_posts';
+                    include "include/view_posts.php";
                     break;
-                case 'add_movie';
-                    include "include/add_movie.php";
+                case 'add_post';
+                    include "include/add_post.php";
                     break;
                 default:
-                    include "include/view_all_movie.php";
+                    include "include/view_all_posts.php";
             }
             ?>
 

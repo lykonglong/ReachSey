@@ -23,16 +23,16 @@ $user_role = $_SESSION['user_role'];
             /*move_uploaded_file($movie_trailer_temp,"../dist/movie/trailer/".$movie_trailer);
             move_uploaded_file($movie_full_temp,"../dist/movie/full/".$movie_full);*/
 
-            $insert_posts = "Insert into posts(sub_cat_id, post_title, post_image, post_desc, post_date, post_tage, date_added)VALUE ('$sub_cat_id','$post_title','$post_image','$post_desc','$date_insert','$post_tage', 1,now())";
-            //$insert_movie = "Insert into movies(user_id, movie_cate_id, movie_title) VALUE ($user_id,$catie_cate_id,'$movie_title')";
+            $insert_posts = "Insert into posts(user_id,sub_cat_id, post_title, post_image, post_desc, post_date, post_tage,post_view)VALUE ('$user_id','$sub_cat_id','$post_title','$post_image','$post_desc','$date_insert','$post_tage',0)";
 
            $run_insert_posts=mysqli_query($connection,$insert_posts);
             if($run_insert_posts){
-                post_uploaded_file($post_image_temp, "../dist/img/".$post_image);
+                move_uploaded_file($post_image_temp, "../../img/".$post_image);
                 echo "<script language=\"javascript\">window.location.href = \"posts.php\"</script>";
             }else
             {
                 echo "Inserting failed!";
+                echo $insert_posts;
             }
         }
         ?>
@@ -128,7 +128,7 @@ $user_role = $_SESSION['user_role'];
                                                 <select class="form-control" id="sub_cat_id" name="sub_cat_id" style="width: 100%;" required>
                                                     <option selected="selected" value="">Choose a sub-category of posts</option>
                                                     <?php
-                                                       getCategory();
+                                                    getSub_Category();
                                                     ?>
                                                 </select>
                                             </div>
@@ -160,17 +160,10 @@ $user_role = $_SESSION['user_role'];
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="dsc" class="col-sm-3 control-label" style="font-size: 16px;">Description</label>
 
-                                        <div class="col-sm-9">
-                                            <textarea class="form-control" rows="4" id="dsc" name="dsc" placeholder="Description"></textarea>
-                                        </div>
-                                    </div>
 
                                 </div>
                                 <div class="col-sm-6">
-
                                     <div class="form-group">
                                         <label for="post_image" class="col-sm-3 control-label" style="font-size: 16px;">Post Image</label>
                                         <div class="col-sm-4">
@@ -184,7 +177,17 @@ $user_role = $_SESSION['user_role'];
                                             <img id="cover" alt="Preview" width="150" height="200" align="center" />
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-sm-12">
 
+
+                                    <div class="form-group">
+                                        <label for="dsc" class="col-sm-3 control-label" style="font-size: 16px;">Description</label>
+
+                                        <div class="col-sm-12">
+                                            <textarea class="ckeditor"  rows="4" id="dsc" name="dsc" placeholder="Description"></textarea>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>

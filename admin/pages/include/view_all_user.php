@@ -134,7 +134,6 @@ $user_role = $_SESSION['user_role'];
                             <th>Name</th>
                             <th>Role</th>
                             <th>Email</th>
-                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -174,7 +173,6 @@ $user_role = $_SESSION['user_role'];
                             <th>Username</th>
                             <th>Name</th>
                             <th>Role</th>
-                            <th>Date</th>
                             <th>Email</th>
                             <th>Action</th>
                         </tr>

@@ -1,71 +1,141 @@
 <?php include "includes/header.php" ?>
-
+<style>
+    .no-break-out {
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow: ellipsis;
+    }
+</style>
   <body>
 
   <?php include "includes/navigation.php" ?>
 
-    <main role="main" class="container">
+  <main role="main" class="container">
 
       <div class=" row row-offcanvas row-offcanvas-right">
 
-        <div class="col-12 col-md-9">
-          <div class="sticky">
-              <h2 class="title">置顶推荐</h2>
-              <ul>
-                <li class="item"><a href="10/803953.html"><img src="img/King Arthur.jpg" alt="SolidWorks 2018 SP0.1 Full Premium Multilanguage x64" /><h3>SolidWorks 2018 SP0.1 Full Premium Multilanguage x64</h3><p class="muted">SOLIDWORKS® 2018 提供了许多增强和改进功能，其中大多数是直接针对客户要求而做出...</p></a></li>
+          <div class="col-12 col-md-9">
+              <div class="sticky">
+                  <h2 class="title">Suggest</h2>
+                  <ul>
+                      <?php
+                      $select_query = "SELECT * FROM posts WHERE post_suggestion = 1 ORDER BY post_id DESC limit 4";
+                      $select_post=mysqli_query($connection,$select_query);
+                      while($row_post = mysqli_fetch_array($select_post)) {
+                          $post_id = $row_post['0'];
+                          $sub_cat_id = $row_post['1'];
+                          $user_id = $row_post['2'];
+                          $post_title = $row_post['3'];
+                          $post_image = $row_post['4'];
+                          $post_date = $row_post['5'];
+                          $post_view = $row_post['6'];
+                          $post_desc = $row_post['7'];
+                          $post_tage = $row_post['8'];
+                          $post_link = $row_post['9'];
 
-                <li class="item"><a href="10/801054.html"><img src="img/King Arthur.jpg" alt="MathWorks MATLAB R2017b x64" /><h3>MathWorks MATLAB R2017b x64</h3><p class="muted">Matlab R2017b win x64 版本正式发布！
-                  MATLAB 是美国MathWor...</p></a></li>
+                          ?>
+                          <li class="item"><a href="#">
+                                  <img src="img/<?= $post_image; ?>" alt="<?= $post_image; ?>"/>
+                                  <h3><?= $post_title; ?></h3>
+                                  <p class="muted no-break-out"><?= $post_desc; ?></p></a>
+                          </li>
+                          <?php
+                      }
+                      ?>
 
-                <li class="item"><a href="09/674513.html"><img src="img/King Arthur.jpg" alt="PTC Creo 4.0 M030" /><h3>PTC Creo 4.0 M030</h3><p class="muted">PTC公司正式发布了Creo 4.0 正式版 版本号 M030（2017-9月更新） ，其革命性...</p></a></li>
-
-                <li class="item"><a href="09/655197.html"><img src="img/King Arthur.jpg" alt="CSI Bridge 2017 v19.0.0 x32/x64" /><h3>CSI Bridge 2017 v19.0.0 x32/x64</h3><p class="muted">CSI Bridge 2017新版发布！
-                  CSi Bridge集成了桥梁结构的建模、分析和设...</p></a></li>
-              </ul>
-            </div>
-
-
-            <h2 class="title">New Posts</h2>
-          <article class="excerpt">
-            <div class="focus"><a href="10/608645.html" class="thumbnail">
-              <img src="img/King Arthur.jpg" alt="Cakewalk SONAR Platinum v23.10.0.14" /></a></div>
-            <header>
-              <a class="label label-important" href="category/software/windows.html">Windows<i class="label-arrow"></i></a>
-              <h2><a href="10/608645.html" title="Cakewalk SONAR Platinum v23.10.0.14 - 0DayDown">Cakewalk SONAR Platinum v23.10.0.14</a></h2>
-            </header>
-            <p>
-              <span class="muted"><i class="fa fa-user icon12"></i> <a href="author/software.html">Software</a></span>
-              <span class="muted"><i class="fa fa-clock-o icon12"></i> 22 Mins</span> <span class="muted"><i class="fa fa-comment icon12"></i> <a href="10/608645.html#respond">0 Comments</a></span></p> <p class="note">
-            Cakewalk SONAR Platinum v23.x with Plugins | 624 Mb
-            SONAR is more than just a digital audio workstation - it's the most adva...	</p>
-          </article>
-
-          <article class="excerpt">
-            <div class="focus"><a href="10/608645.html" class="thumbnail">
-              <img src="img/King Arthur.jpg" alt="Cakewalk SONAR Platinum v23.10.0.14" /></a></div>
-            <header>
-              <a class="label label-important" href="category/software/windows.html">Windows<i class="label-arrow"></i></a>
-              <h2><a href="10/608645.html" title="Cakewalk SONAR Platinum v23.10.0.14 - 0DayDown">Cakewalk SONAR Platinum v23.10.0.14</a></h2>
-            </header>
-            <p>
-              <span class="muted"><i class="fa fa-user icon12"></i> <a href="author/software.html">Software</a></span>
-              <span class="muted"><i class="fa fa-clock-o icon12"></i> 22 Mins</span> <span class="muted"><i class="fa fa-comment icon12"></i> <a href="10/608645.html#respond">0 Comments</a></span></p> <p class="note">
-            Cakewalk SONAR Platinum v23.x with Plugins | 624 Mb
-            SONAR is more than just a digital audio workstation - it's the most adva...	</p>
-          </article>
-        </div><!--/span-->
+                  </ul>
+              </div>
 
 
+              <h2 class="title">New Posts</h2>
+              <?php
+              $select_query = "SELECT * FROM posts ORDER BY post_id DESC";
+              $select_post=mysqli_query($connection,$select_query);
+              while($row_post = mysqli_fetch_array($select_post)) {
+                  $post_id = $row_post['0'];
+                  $sub_cat_id = $row_post['1'];
+                  $user_id = $row_post['2'];
+                  $post_title = $row_post['3'];
+                  $post_image = $row_post['4'];
+                  $post_date = $row_post['5'];
+                  $post_view = $row_post['6'];
+                  $post_desc = $row_post['7'];
+                  $post_tage = $row_post['8'];
+                  $post_link = $row_post['9'];
 
-<?php include "includes/leftbar.php" ?>
+                  ?>
+                  <article class="excerpt">
+                      <div class="focus"><a href="#" class="thumbnail">
+                              <img src="img/<?= $post_image; ?>" alt="<?= $post_title; ?>"/></a></div>
+                      <header>
+                          <a class="label label-important" href="#">
+                              <?php
+                              $query_sub_cat = "SELECT * FROM sub_categories WHERE sub_cat_id=$sub_cat_id";
+                              $select_sub_cat=mysqli_query($connection,$query_sub_cat);
+                              while($row_sub_cat = mysqli_fetch_array($select_sub_cat)) {
+                                  echo $sub_cat_name = $row_sub_cat['sub_cat_name'];
+                              }
+                              ?>
+                              <i class="label-arrow"></i>
+                          </a>
+                          <h2><a href="#" title="<?= $post_title; ?>"><?= $post_title; ?></a></h2>
+                      </header>
+                      <p>
+                <span class="muted"><i class="fa fa-user icon12"></i>
+                  <a href="#">
+                    <?php
+                    $query_user = "SELECT * FROM users WHERE user_id=$user_id";
+                    $select_user=mysqli_query($connection,$query_user);
+                    while($row_user = mysqli_fetch_array($select_user)) {
+                        echo $name = $row_user['name'];
+                    }
+                    ?>
+                  </a>
+                </span>
+
+                          <span class="muted"><i class="fa fa-clock-o icon12"></i>
+                              <?php
+                              $now = date('Y-m-d');
+                              if(date_create($post_date)==date_create($now)){
+                                  echo "Today";
+                              }else{
+                                  $diff=date_diff(date_create($post_date),date_create($now));
+                                  echo $diff->format("%a days ago");
+                              }
+
+                              ?>
+                </span>
+
+                          <span class="muted"><i class="fa fa-comment icon12"></i>
+                  <a href="#"><?= $post_view; ?>&nbsp;Views</a>
+                </span>
+                      </p>
+                      <p class="note no-break-out">
+                          <?php
+                            if(strlen($post_desc)<=200){
+                              echo $post_desc;
+                            }else{
+                              $shorten= substr($post_desc,0,200). '... ';
+                              echo $shorten;
+                            }
+                        ?></p>
+                  </article>
+                  <?php
+              }
+              ?>
+
+          </div><!--/span-->
+
+
+
+          <?php include "includes/leftbar.php" ?>
 
 
       </div><!--/row-->
 
       <hr>
 
-    </main><!--/.container-->
-
+  </main><!--/.container-->
     <?php include "includes/footer.php" ?>
   </body>
 

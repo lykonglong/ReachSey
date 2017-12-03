@@ -63,10 +63,6 @@
       <div class="pull-left image">
 
       </div>
-      <div class="pull-left info">
-        <p><?php echo $name;?></p>
-        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-      </div>
     </div>
 
     <ul class="sidebar-menu">
@@ -89,10 +85,17 @@
           <i class="fa fa-video-camera"></i> <span>Posts</span>
         </a>
       </li>
+
       <li>
         <a href="category.php">
           <i class="fa fa-briefcase"></i> <span>Category</span>
         </a>
+      </li>
+
+      <li>
+         <a href="sub_category.php">
+           <i class="fa fa-briefcase"></i> <span>Sub Category</span>
+         </a>
       </li>
 
       <li>
@@ -125,6 +128,11 @@
           <li>
             <a href="category.php">
               <i class="fa fa-magic"></i> <span>Category</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-magic"></i><span>Sub Category</span>
             </a>
           </li>
           <li>

@@ -1,6 +1,6 @@
 <head>
     
-<?php ob_start(); ?>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="../plugins/colorpicker/bootstrap-colorpicker.min.css">
   <!--mask-->
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"> </script>
+    <script src="../plugins/ckeditor/ckeditor.js"></script>
   <script>
     $(document).ready(function($){
       $('#phoneNumber').mask("999 999 9999", {placeholder:"(xxx) xxx xxxx"});
@@ -37,5 +38,6 @@
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
   <![endif]-->
 </head>

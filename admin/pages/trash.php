@@ -45,7 +45,7 @@ if($_SESSION['user_id'])
             }
             switch($source){
                 case 'view_movie';
-                    include "include/view_movie.php";
+                    include "include/view_posts.php";
                     break;
                 default:
                     include "include/view_all_trash.php";

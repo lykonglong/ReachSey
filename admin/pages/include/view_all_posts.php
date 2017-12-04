@@ -82,7 +82,7 @@
                                                 <label for="post_category" class="col-sm-3 control-label" style="font-size: 16px;">Category</label>
                                                 <div class="col-sm-9">
                                                     <select class="form-control" id="post_category" name="post_category" style="width: 100%;" required>
-                                                        <option value="" selected>--Please Choose a Category--</option>
+
                                                         <?php
                                                         $query="select * from category_detail";
                                                         $select_category=mysqli_query($connection,$query);
@@ -153,7 +153,7 @@
                             <th>Action</th>
                         </tr>
                         </thead>
-                        
+
                         <tfoot>
                         <tr>
                             <th>ID</th>
@@ -165,7 +165,7 @@
                         </tr>
                         </tfoot>
                     </table>
-					
+
 					<script type="text/javascript" language="javascript" >
 						$(document).ready(function() {
 							var dataTable = $('#movie_ser').DataTable( {
@@ -184,16 +184,24 @@
 							} );
 						} );
 					</script>
-					
+
                     <!--delete video from table video_post by id-->
                     <?php
                     if(isset($_GET['trash'])) {
                         $trash_id=$_GET['trash'];
-                        $trash ="UPDATE posts SET status='0' WHERE post_id=$trash_id";
+                        $trash ="UPDATE posts SET post_status='0' WHERE post_id=$trash_id";
                         $run_trash=mysqli_query($connection,$trash);
                         if($run_trash){
                             echo "<script language=\"javascript\">window.location.href = posts.php/script>";
                         }
+                    }elseif (isset($_GET['suggestion'])) {
+                      # code...
+                      $suggestion_id=$_GET['suggestion'];
+                      $trash ="UPDATE posts SET post_suggestion='1' WHERE post_id=$suggestion_id";
+                      $run_suggestion=mysqli_query($connection,$trash);
+                      if($run_suggestion){
+                          echo "<script language=\"javascript\">window.location.href = posts.php/script>";
+                      }
                     }
                     ?>
                 </div>

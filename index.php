@@ -49,7 +49,7 @@
 
               <h2 class="title">New Posts</h2>
               <?php
-              $select_query = "SELECT * FROM posts ORDER BY post_id DESC";
+              $select_query = "SELECT * FROM posts where post_status=1 ORDER BY post_id DESC";
               $select_post=mysqli_query($connection,$select_query);
               while($row_post = mysqli_fetch_array($select_post)) {
                   $post_id = $row_post['0'];
@@ -91,7 +91,7 @@
                     }
                     ?>
                   </a>
-                </span>
+                </span>&nbsp;
 
                           <span class="muted"><i class="fa fa-clock-o icon12"></i>
                               <?php
@@ -104,9 +104,9 @@
                               }
 
                               ?>
-                </span>
+                </span>&nbsp;
 
-                          <span class="muted"><i class="fa fa-comment icon12"></i>
+                          <span class="muted"><i class="fa fa-eye icon12"></i>
                   <a href="#"><?= $post_view; ?>&nbsp;Views</a>
                 </span>
                       </p>

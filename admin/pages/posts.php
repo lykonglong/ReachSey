@@ -98,8 +98,9 @@ if($_SESSION['user_id'])
                 "autoWidth": false
             });
             //Datemask dd/mm/yyyy
-            $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
-            $('#datemask').datepicker()
+            //$("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+          
+            $('#datemask').datepicker();
         });
 
     </script>

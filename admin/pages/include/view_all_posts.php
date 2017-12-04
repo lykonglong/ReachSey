@@ -145,23 +145,25 @@
                     <table id="movie_ser" class="table table-bordered table-hover">
                         <thead>
                         <tr>
-                            <th>ID</th>
+                            <th width=50px;>ID</th>
                             <th>Title</th>
                             <th>Category</th>
-                            <th>Post Views</th>
-                            <th>Image</th>
-                            <th>Action</th>
+                            <th width=50px;>Post Views</th>
+                            <th width=50px;>Image</th>
+                            <th width=200px;>Action</th>
+                            <th width=100px;>Suggest</th>
                         </tr>
                         </thead>
 
                         <tfoot>
                         <tr>
-                            <th>ID</th>
+                            <th width=50px;>ID</th>
                             <th>Title</th>
                             <th>Category</th>
-                            <th>Post Views</th>
-                            <th>Image</th>
-                            <th>Action</th>
+                            <th width=50px;>Post Views</th>
+                            <th width=50px;>Image</th>
+                            <th width=200px;>Action</th>
+                            <th width=100px;>Suggest</th>
                         </tr>
                         </tfoot>
                     </table>
@@ -198,6 +200,14 @@
                       # code...
                       $suggestion_id=$_GET['suggestion'];
                       $trash ="UPDATE posts SET post_suggestion='1' WHERE post_id=$suggestion_id";
+                      $run_suggestion=mysqli_query($connection,$trash);
+                      if($run_suggestion){
+                          echo "<script language=\"javascript\">window.location.href = posts.php/script>";
+                      }
+                    }elseif (isset($_GET['desuggestion'])) {
+                      # code...
+                      $suggestion_id=$_GET['desuggestion'];
+                      $trash ="UPDATE posts SET post_suggestion='0' WHERE post_id=$suggestion_id";
                       $run_suggestion=mysqli_query($connection,$trash);
                       if($run_suggestion){
                           echo "<script language=\"javascript\">window.location.href = posts.php/script>";

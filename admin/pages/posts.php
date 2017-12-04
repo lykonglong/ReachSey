@@ -79,6 +79,7 @@ if($_SESSION['user_id'])
     <script src="../dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../dist/js/demo.js"></script>
+    <script src="../plugins/datepicker/bootstrap-datepicker.js"></script>
     <!-- InputMask -->
     <script src="../plugins/input-mask/jquery.inputmask.js"></script>
     <script src="../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
@@ -98,6 +99,7 @@ if($_SESSION['user_id'])
             });
             //Datemask dd/mm/yyyy
             $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+            $('#datemask').datepicker()
         });
 
     </script>

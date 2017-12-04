@@ -126,7 +126,7 @@ $user_role = $_SESSION['user_role'];
                                                     <i class="fa fa-briefcase"></i>
                                                 </div>
                                                 <select class="form-control" id="sub_cat_id" name="sub_cat_id" style="width: 100%;" required>
-                                                    <option selected="selected" value="">Choose a sub-category of posts</option>
+
                                                     <?php
                                                     getSub_Category();
                                                     ?>

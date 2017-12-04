@@ -1,5 +1,5 @@
 <head>
-    
+
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
   <!-- Bootstrap Color Picker -->
   <link rel="stylesheet" href="../plugins/colorpicker/bootstrap-colorpicker.min.css">
+  <link rel="stylesheet" href="../plugins/datepicker/datepicker3.css">
   <!--mask-->
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"> </script>
     <script src="../plugins/ckeditor/ckeditor.js"></script>

@@ -1,0 +1,29 @@
+.breadcrumbs {
+    margin: 0 0 1px;
+    padding: 9px 20px 7px;
+    background-color: #f7f7f7;
+}
+.breadcrumbs small {
+    font-size: 12px;
+    font-family: serif;
+    color: #bbb;
+    margin: 0 2px;
+    font-weight: bold;
+}
+.breadcrumbs a{
+  font-size: 12px;
+  line-height: 20px;
+}
+.article-header {
+    margin-bottom: 1px;
+    padding: 2px 20px 12px;
+    background-color: #fbfbfb;
+}
+h1 {
+    font-size: 20px;
+    font-weight: normal;
+
+}
+.article-title a {
+    color: #444;
+}

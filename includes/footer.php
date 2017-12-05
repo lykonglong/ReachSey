@@ -1,5 +1,6 @@
 <footer>
-    <p>&copy; Company 2017</p>
+  <div class="footer-inner"><p>&copy; Company 2017</p></div>
+
 </footer>
 
 

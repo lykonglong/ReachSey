@@ -81,7 +81,7 @@
             <article class="article-content">
               <p><img class="aligncenter" src="../img/<?= $post_image ?>" alt="<?= $post_title ?>"></p>
 
-              <div class="text-center"><b>SoftPerfect Switch Port Mapper 2.0.7 + Portable | 13.2 MB</b></div>
+              <div class="text-center"><b><?= $post_title ?></b></div>
                 <?php echo $post_desc;?>
                 <hr>
                   <p>Download Link<br>

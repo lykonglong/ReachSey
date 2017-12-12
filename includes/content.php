@@ -22,7 +22,7 @@
                         $post_link = $row_post['9'];
 
                         ?>
-                        <li class="item"><a href="#">
+                        <li class="item"><a href="detail.php?id=<?php echo $post_id;?>">
                                 <img src="img/<?= $post_image; ?>" alt="<?= $post_image; ?>"/>
                                 <h3><?= $post_title; ?></h3>
                                 <p class="muted no-break-out"><?= $post_desc; ?></p></a>
@@ -53,10 +53,10 @@
 
                 ?>
                 <article class="excerpt">
-                    <div class="focus"><a href="#" class="thumbnail">
+                    <div class="focus"><a href="detail.php?id=<?php echo $post_id;?>" class="thumbnail">
                             <img src="img/<?= $post_image; ?>" alt="<?= $post_title; ?>"/></a></div>
                     <header>
-                        <a class="label label-important" href="?action=detail">
+                        <a class="label label-important" href="detail.php?id=<?php echo $post_id;?>">
                             <?php
                             $query_sub_cat = "SELECT * FROM sub_categories WHERE sub_cat_id=$sub_cat_id";
                             $select_sub_cat=mysqli_query($connection,$query_sub_cat);
@@ -66,7 +66,7 @@
                             ?>
                             <i class="label-arrow"></i>
                         </a>
-                        <h2><a href="?action=detail" title="<?= $post_title; ?>"><?= $post_title; ?></a></h2>
+                        <h2><a href="?action=detail&id=<?= $post_id; ?>"  title="<?= $post_title; ?>"><?= $post_title; ?></a></h2>
                     </header>
                     <p>
               <span class="muted"><i class="fa fa-user icon12"></i>

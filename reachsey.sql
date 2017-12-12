@@ -31,6 +31,48 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` VALUES ('1', 'Tutorials');
 INSERT INTO `categories` VALUES ('2', 'Software');
 
+
+DROP TABLE IF EXISTS `sub_categories`;
+CREATE TABLE `sub_categories` (
+  `sub_cat_id` int(20) NOT NULL AUTO_INCREMENT,
+  `cat_id` int(20) NOT NULL,
+  `sub_cat_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`sub_cat_id`),
+  KEY `RK_Cat` (`cat_id`),
+  CONSTRAINT `RK_Cat` FOREIGN KEY (`cat_id`) REFERENCES `categories` (`cat_id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sub_categories
+-- ----------------------------
+INSERT INTO `sub_categories` VALUES ('1', '2', 'Design');
+INSERT INTO `sub_categories` VALUES ('2', '2', 'Graphic');
+INSERT INTO `sub_categories` VALUES ('3', '1', '3D Animation');
+INSERT INTO `sub_categories` VALUES ('4', '1', 'Programming');
+
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `user_id` int(20) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `user_email` varchar(255) NOT NULL,
+  `user_role` varchar(255) NOT NULL,
+  `user_password` varchar(255) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of users
+-- ----------------------------
+INSERT INTO `users` VALUES ('1', 'kimhong', 'Hong', 'kimhonghengabc@gmail.com', 'Admin', '123456');
+INSERT INTO `users` VALUES ('2', 'darakok', 'Dara Kok', 'kok@gmail.com', 'user', '123456');
+INSERT INTO `users` VALUES ('3', 'long', 'Long', 'lykonglong@qq.com', 'Admin', '123456');
+SET FOREIGN_KEY_CHECKS=1;
+
+
 -- ----------------------------
 -- Table structure for posts
 -- ----------------------------
@@ -83,42 +125,3 @@ CREATE TABLE `post_img` (
 -- ----------------------------
 -- Table structure for sub_categories
 -- ----------------------------
-DROP TABLE IF EXISTS `sub_categories`;
-CREATE TABLE `sub_categories` (
-  `sub_cat_id` int(20) NOT NULL AUTO_INCREMENT,
-  `cat_id` int(20) NOT NULL,
-  `sub_cat_name` varchar(255) NOT NULL,
-  PRIMARY KEY (`sub_cat_id`),
-  KEY `RK_Cat` (`cat_id`),
-  CONSTRAINT `RK_Cat` FOREIGN KEY (`cat_id`) REFERENCES `categories` (`cat_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of sub_categories
--- ----------------------------
-INSERT INTO `sub_categories` VALUES ('1', '2', 'Design');
-INSERT INTO `sub_categories` VALUES ('2', '2', 'Graphic');
-INSERT INTO `sub_categories` VALUES ('3', '1', '3D Animation');
-INSERT INTO `sub_categories` VALUES ('4', '1', 'Programming');
-
--- ----------------------------
--- Table structure for users
--- ----------------------------
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
-  `user_id` int(20) NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `user_email` varchar(255) NOT NULL,
-  `user_role` varchar(255) NOT NULL,
-  `user_password` varchar(255) NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of users
--- ----------------------------
-INSERT INTO `users` VALUES ('1', 'kimhong', 'Hong', 'kimhonghengabc@gmail.com', 'Admin', '123456');
-INSERT INTO `users` VALUES ('2', 'darakok', 'Dara Kok', 'kok@gmail.com', 'user', '123456');
-INSERT INTO `users` VALUES ('3', 'long', 'Long', 'lykonglong@qq.com', 'Admin', '123456');
-SET FOREIGN_KEY_CHECKS=1;

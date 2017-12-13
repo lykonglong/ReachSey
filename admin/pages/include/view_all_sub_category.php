@@ -25,10 +25,10 @@ include "function.php"
         <!--<small>Preview page</small>-->
         <?php
         if(isset($_POST['btninsert'])){
-            $cat_name=mysqli_real_escape_string($connection,$_POST['sub_cat_name']);
+            $sub_cat_name=mysqli_real_escape_string($connection,$_POST['sub_cat_name']);
+            $cat_id=mysqli_real_escape_string($connection,$_POST['cat_id']);
 
-
-            $insert_sub_category ="Insert into sub_categories (sub_cat_name) VALUES ('$sub_cat_name') " ;
+            $insert_sub_category ="Insert into sub_categories (cat_id,sub_cat_name) VALUES ('$cat_id','$sub_cat_name') " ;
             $run_insert_sub_category=mysqli_query($connection,$insert_sub_category);
             if($run_insert_sub_category){
                 header('location:sub_category.php');
@@ -97,7 +97,7 @@ include "function.php"
             </div>
         </div>
         <!-- /End of Modal -->
-        
+
 
     </h1>
     <ol class="breadcrumb">
@@ -125,7 +125,7 @@ include "function.php"
                             <th>Sub Category Name</th>
                             <th>Category Name</th>
                             <th>Action</th>
-                            
+
                         </tr>
                         </thead>
                         <tbody>

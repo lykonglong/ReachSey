@@ -25,7 +25,14 @@
                         <li class="item"><a href="detail.php?id=<?php echo $post_id;?>">
                                 <img src="img/<?= $post_image; ?>" alt="<?= $post_image; ?>"/>
                                 <h3><?= $post_title; ?></h3>
-                                <p class="muted no-break-out"><?= $post_desc; ?></p></a>
+                                <p class="muted no-break-out">  <?php
+                                    if(strlen($post_desc)<=200){
+                                      echo $post_desc;
+                                    }else{
+                                      $shorten= substr($post_desc,0,200). '... ';
+                                      echo $shorten;
+                                    }
+                                ?></p></a>
                         </li>
                         <?php
                     }

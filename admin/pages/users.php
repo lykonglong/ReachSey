@@ -1,11 +1,8 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <title>Users Management</title>
 <?php
-//session_start();
+session_start();
 //error_reporting(0);
 include_once "../_config_inc.php";
 include_once "../includes/db.php";

@@ -16,7 +16,7 @@
         $update_query="UPDATE sub_categories SET sub_cat_name='$new_sub_cat_name' WHERE sub_cat_id='$the_sub_cat_id'";
         $update_sub_category=mysqli_query($connection,$update_query);
         if($update_sub_category){
-            header('location:sub_category.php');
+            echo "<script language=\"javascript\">window.location.href = \"sub_category.php\"</script>";
         }else{
             echo "failed";
         }

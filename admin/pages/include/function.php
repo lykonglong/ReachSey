@@ -39,17 +39,24 @@ function countCategory(){
     $run_select_category = mysqli_query($connection,$select_category);
     return $rowCount = mysqli_num_rows($run_select_category);
 }
-function countMovie(){
+function countSubCategory(){
     global $connection;
-    $select_movie="SELECT * FROM movies WHERE status=1";
-    $run_select_movie = mysqli_query($connection,$select_movie);
-    return $rowCount = mysqli_num_rows($run_select_movie);
+    $select_category="SELECT * FROM sub_categories";
+    $run_select_category = mysqli_query($connection,$select_category);
+    return $rowCount = mysqli_num_rows($run_select_category);
 }
-function countTrash(){
+function countPost(){
     global $connection;
-    $select_trash_movie="SELECT * FROM movies WHERE status=0";
-    $run_select_trash_movie = mysqli_query($connection,$select_trash_movie);
-    return $rowCount = mysqli_num_rows($run_select_trash_movie);
+    $select_post="SELECT * FROM posts WHERE post_status=1";
+    $run_select_post = mysqli_query($connection,$select_post);
+    return $rowCount = mysqli_num_rows($run_select_post);
+}
+
+function countPostTrash(){
+    global $connection;
+    $select_post="SELECT * FROM posts WHERE post_status=0";
+    $run_select_post = mysqli_query($connection,$select_post);
+    return $rowCount = mysqli_num_rows($run_select_post);
 }
 function countSlide(){
     global $connection;

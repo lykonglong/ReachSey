@@ -14,6 +14,7 @@ $user_role = $_SESSION['user_role'];
             $post_tage=mysqli_real_escape_string($connection,$_POST['post_tage']);
             $post_desc=mysqli_real_escape_string($connection,mb_convert_encoding($_POST['dsc'],"UTF-8","auto") );
 
+            $down_link=mysqli_real_escape_string($connection,$_POST['down_link']);
 
             $post_image=$_FILES['post_image']['name'];
             $post_image_temp=$_FILES['post_image']['tmp_name'];
@@ -23,7 +24,7 @@ $user_role = $_SESSION['user_role'];
             /*move_uploaded_file($movie_trailer_temp,"../dist/movie/trailer/".$movie_trailer);
             move_uploaded_file($movie_full_temp,"../dist/movie/full/".$movie_full);*/
 
-            $insert_posts = "Insert into posts(user_id,sub_cat_id, post_title, post_image, post_desc, post_date, post_tage,post_view,post_status)VALUE ('$user_id','$sub_cat_id','$post_title','$post_image','$post_desc','$date_insert','$post_tage',0,1)";
+            $insert_posts = "Insert into posts(user_id,sub_cat_id, post_title, post_image, post_desc, post_date, post_tage,post_view,post_status,down_link)VALUE ('$user_id','$sub_cat_id','$post_title','$post_image','$post_desc','$date_insert','$post_tage',0,1,'$down_link')";
 
            $run_insert_posts=mysqli_query($connection,$insert_posts);
             if($run_insert_posts){
@@ -156,6 +157,17 @@ $user_role = $_SESSION['user_role'];
                                                     <i class="fa fa-tags"></i>
                                                 </div>
                                                 <input type="text" class="form-control" value="" id="post_tage" name="post_tage" placeholder="Post Tage" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="down_link" class="col-sm-3 control-label" style="font-size: 16px;">Download Link</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-tags"></i>
+                                                </div>
+                                                <input type="text" class="form-control" value="" id="down_link" name="down_link" placeholder="Download Link">
                                             </div>
                                         </div>
                                     </div>

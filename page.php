@@ -22,7 +22,10 @@
           include "includes/detail.php";
           break;
       case 'category':
-          include "includes/category.php";
+          include "includes/main_category.php";
+          break;
+      case 'category':
+          include "includes/sub_category.php";
           break;
       default:
           include "includes/detail.php";

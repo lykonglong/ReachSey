@@ -31,7 +31,7 @@ include "function.php"
             $insert_sub_category ="Insert into sub_categories (cat_id,sub_cat_name) VALUES ('$cat_id','$sub_cat_name') " ;
             $run_insert_sub_category=mysqli_query($connection,$insert_sub_category);
             if($run_insert_sub_category){
-                header('location:sub_category.php');
+                echo "<script language=\"javascript\">window.location.href = \"sub_category.php\"</script>";
             }else
             {
                 echo "Inserting failed!";

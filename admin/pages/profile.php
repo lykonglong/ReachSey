@@ -1,11 +1,8 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <title>Profile Management</title>
 <?php
-//session_start();
+session_start();
 require_once "../../includes/db.php";
 include_once "include/function.php";
 
@@ -188,3 +185,5 @@ if($_SESSION['user_id'])
 }
 ?>
 </html>
+
+

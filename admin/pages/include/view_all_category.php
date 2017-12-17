@@ -28,7 +28,7 @@
             $insert_category ="Insert into categories (cat_name) VALUES ('$cat_name') " ;
             $run_insert_category=mysqli_query($connection,$insert_category);
             if($run_insert_category){
-                header('location:category.php');
+                echo "<script language=\"javascript\">window.location.href = \"category.php\"</script>";
             }else
             {
                 echo "Inserting failed!";

@@ -16,7 +16,7 @@
         $update_query="UPDATE categories SET cat_name='$new_cate_name' WHERE cat_id='$the_cate_id'";
         $update_category=mysqli_query($connection,$update_query);
         if($update_category){
-            header('location:category.php');
+            echo "<script language=\"javascript\">window.location.href = \"category.php\"</script>";
         }else{
             echo "failed";
         }

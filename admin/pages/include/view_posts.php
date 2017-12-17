@@ -15,12 +15,13 @@ if(isset($_GET['view'])){
         $post_date = date("d-m-Y", strtotime($post_date));
 
         $post_tag = $row['post_tage'];
+        $down_link = $row['down_link'];
 
 
-        $cate_query = "select * from categories where cat_id=$sub_cat_id";
+        $cate_query = "select * from sub_categories where sub_cat_id=$sub_cat_id";
         $select_category = mysqli_query($connection, $cate_query);
         while ($row = mysqli_fetch_assoc($select_category)) {
-            $cate_name = $row['cat_name'];
+            $sub_cat_name = $row['sub_cat_name'];
         }
     }
 }
@@ -28,7 +29,7 @@ if(isset($_GET['view'])){
 ?>
 <!-- Main content -->
 <section class="content">
-    <p style="text-align: center;font-size: 36px;">Form detail of movie​</p>
+    <p style="text-align: center;font-size: 36px;">Form detail of post</p>
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
@@ -57,13 +58,13 @@ if(isset($_GET['view'])){
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="movie_cate_id" class="col-sm-3 control-label" style="font-size: 16px;">Category</label>
+                                    <label for="movie_cate_id" class="col-sm-3 control-label" style="font-size: 16px;">Sub Category</label>
                                     <div class="col-sm-9">
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-briefcase"></i>
                                             </div>
-                                            <input type="text" class="form-control" value="<?php echo $cate_name ;?>" id="post_title" name="post_title" placeholder="Post Title" readonly>
+                                            <input type="text" class="form-control" value="<?php echo $sub_cat_name ;?>" id="post_title" name="post_title" placeholder="Post Title" readonly>
                                         </div>
 
                                     </div>
@@ -89,6 +90,17 @@ if(isset($_GET['view'])){
                                                 <i class="fa fa-tags"></i>
                                             </div>
                                             <input type="text" class="form-control" value="<?php echo $post_tag;?>" id="movie_tags" name="post_tags" placeholder="post Tags" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="down_link" class="col-sm-3 control-label" style="font-size: 16px;">Download Link</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-tags"></i>
+                                            </div>
+                                            <input type="text" class="form-control" value="<?php echo $down_link;?>" id="" name="down_link" placeholder="Download Link" readonly>
                                         </div>
                                     </div>
                                 </div>

@@ -43,8 +43,9 @@ if(isset($_POST['btnupdate'])){
     $new_post_date_insert= date('Y-m-d',strtotime($datesort));
 
     $new_post_tage=mysqli_real_escape_string($connection,$_POST['post_tage']);
+    $new_down_link=mysqli_real_escape_string($connection,$_POST['down_link']);
 
-    $update_query="UPDATE posts SET sub_cat_id='$new_sub_cat_id', post_title='$new_post_title', post_image='$new_post_image',post_desc='$new_post_desc',post_date='$new_post_date_insert',post_tage='$new_post_tage' WHERE post_id='$post_edit_id'";
+    $update_query="UPDATE posts SET sub_cat_id='$new_sub_cat_id', post_title='$new_post_title', post_image='$new_post_image',post_desc='$new_post_desc',post_date='$new_post_date_insert',post_tage='$new_post_tage',down_link='$new_down_link' WHERE post_id='$post_edit_id'";
     $update_movie=mysqli_query($connection,$update_query);
     if($update_movie){
         echo "<script language=\"javascript\">window.location.href = 'posts.php'</script>";
@@ -89,7 +90,7 @@ if(isset($_POST['btnupdate'])){
                                                 <select class="form-control" id="sub_cat_id" name="sub_cat_id" style="width: 100%;" required>
                                                     <option selected="selected" value="<?php echo $sub_cat_id;?>"><?php echo $sub_cat_name;?></option>
                                                     <?php
-                                                    getCategory();
+                                                    getSub_Category();
                                                     ?>
                                                 </select>
                                             </div>
@@ -117,6 +118,17 @@ if(isset($_POST['btnupdate'])){
                                                     <i class="fa fa-users"></i>
                                                 </div>
                                                 <input type="text" class="form-control" value="<?php echo $post_tage;?>" id="movie_tags" name="post_tage" placeholder="Movie Tags" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="down_link" class="col-sm-3 control-label" style="font-size: 16px;">Download Link</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-users"></i>
+                                                </div>
+                                                <input type="text" class="form-control" value="<?php echo $down_link;?>" id="down_link" name="down_link" placeholder="Download Link">
                                             </div>
                                         </div>
                                     </div>

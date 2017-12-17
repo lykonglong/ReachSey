@@ -1,16 +1,42 @@
 <?php include "includes/db.php";?>
 <?php include "includes/function.php" ?>
+
 <!doctype html>
 <html lang="en">
 <head>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3971942960857173",
+    enable_page_level_ads: true
+  });
+</script>
     <script src="https://use.fontawesome.com/41cd343be6.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+   <meta name="description" content="Reachsey,Download下载 Cracked 已付费 破解注册 安装,免费" />
+<meta name="keywords" content="pro/e,UG,CAD,CAM,CAE,EDA,MacOSX,Android,games,movies,music,音乐,电影,游戏,破解版,注册版,已付费,KeyGen,Crack,Siemens,NX,SolidWorks,AutoCAD,CATIA,Solid Edge,Cimatron,PowerMILL,MasterCAM,ANSYS,TopSolid,MSC" />
+    <?php
+    if(isset($_GET['id'])){
+        $post_id=mysqli_real_escape_string($connection,$_GET['id']);
+        //echo $video_id;
+       // $query="select * from video_posts where video_id=$video_id";
+        //$select_video=mysqli_query($connection,$query);
+        $stms=$connection->prepare("SELECT * FROM posts where post_id = ?");
+        $stms->bind_param("s",$post_id);
+        $stms->execute();
+        $select_post=$stms->get_result();
+        //$row=$select_video->num_rows;
+         while($row= $select_post->fetch_assoc()){
+            //$the_video_id=$row['video_id'];
 
+            $post_title=$row['post_title'];
+          }echo "<title>$post_title</title>";
+      }else {
+        echo "<title>Reachsey</title>";
+      }
+?>
 
-    <title>ReachSey</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">

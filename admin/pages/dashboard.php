@@ -1,9 +1,8 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <title>Wellcome to control panel</title>
 <?php
-
+session_start();
 //error_reporting(0);
 require_once "../includes/db.php";
 include 'include/function.php';
@@ -55,9 +54,9 @@ if($_SESSION['user_id'])
                         <!-- small box -->
                         <div class="small-box bg-aqua">
                             <div class="inner">
-                                <h3> </h3>
+                                <h3><?php echo countPost(); ?> </h3>
 
-                                <p>Movies</p>
+                                <p>All Posts</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-videocamera"></i>
@@ -70,7 +69,7 @@ if($_SESSION['user_id'])
                         <!-- small box -->
                         <div class="small-box bg-green">
                             <div class="inner">
-                                <h3> </h3>
+                                <h3><?php echo countCategory(); ?> </h3>
 
                                 <p>Categories</p>
                             </div>
@@ -85,9 +84,9 @@ if($_SESSION['user_id'])
                         <!-- small box -->
                         <div class="small-box bg-yellow">
                             <div class="inner">
-                                <h3> </h3>
+                                <h3><?php echo countSubCategory(); ?>  </h3>
 
-                                <p>Slide show</p>
+                                <p>Sub Categories</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-images"></i>
@@ -100,9 +99,9 @@ if($_SESSION['user_id'])
                         <!-- small box -->
                         <div class="small-box bg-red">
                             <div class="inner">
-                                <h3> </h3>
+                                <h3> <?php echo countPostTrash(); ?></h3>
 
-                                <p>Movies in trash</p>
+                                <p>Posts in trash</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-trash-a"></i>

@@ -7,7 +7,7 @@ function url(){
     $_SERVER['REQUEST_URI']
   );
 }
-function getBaseUrl() 
+function getBaseUrl()
 {
     // output: /myproject/index.php
     $currentPath = $_SERVER['PHP_SELF'];
@@ -24,4 +24,6 @@ function getBaseUrl()
     // return: http://localhost/myproject/
     return $protocol.$hostName.$pathInfo['dirname']."/";
 }
+
+
 ?>

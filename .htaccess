@@ -1,0 +1,8 @@
+RewriteEngine On
+
+
+
+RewriteRule ^index?$ index.php
+
+
+RewriteRule ^page/([0-9a-z]+) page.php?action=detail&id=$1

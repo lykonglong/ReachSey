@@ -23,7 +23,7 @@ $user_role = $_SESSION['user_role'];
             /*move_uploaded_file($movie_trailer_temp,"../dist/movie/trailer/".$movie_trailer);
             move_uploaded_file($movie_full_temp,"../dist/movie/full/".$movie_full);*/
 
-            $insert_posts = "Insert into posts(user_id,sub_cat_id, post_title, post_image, post_desc, post_date, post_tage,post_view)VALUE ('$user_id','$sub_cat_id','$post_title','$post_image','$post_desc','$date_insert','$post_tage',0)";
+            $insert_posts = "Insert into posts(user_id,sub_cat_id, post_title, post_image, post_desc, post_date, post_tage,post_view,post_status)VALUE ('$user_id','$sub_cat_id','$post_title','$post_image','$post_desc','$date_insert','$post_tage',0,1)";
 
            $run_insert_posts=mysqli_query($connection,$insert_posts);
             if($run_insert_posts){

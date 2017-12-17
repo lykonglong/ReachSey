@@ -15,7 +15,7 @@ if(isset($_GET['edit'])){
         $post_date = date("d-m-Y", strtotime($post_date_db));
 
         $post_tage = $row['post_tage'];
-        $post_link = $row['post_link'];
+        $down_link = $row['down_link'];
 
         $cate_query = "select * from sub_categories where sub_cat_id=$sub_cat_id";
         $select_category = mysqli_query($connection, $cate_query);
@@ -36,7 +36,7 @@ if(isset($_POST['btnupdate'])){
         $new_post_image = $post_image;
     }
 
-    $new_post_desc=mysqli_real_escape_string($connection,mb_convert_encoding($_POST['dsc'],"UTF-8","auto") );
+    $new_post_desc=mysqli_real_escape_string($connection,mb_convert_encoding($_POST['post_desc'],"UTF-8","auto") );
 
     $new_post_date=mysqli_real_escape_string($connection,$_POST['post_date']);
     $datesort= str_replace('/', '-', "$new_post_date");
@@ -47,7 +47,7 @@ if(isset($_POST['btnupdate'])){
     $update_query="UPDATE posts SET sub_cat_id='$new_sub_cat_id', post_title='$new_post_title', post_image='$new_post_image',post_desc='$new_post_desc',post_date='$new_post_date_insert',post_tage='$new_post_tage' WHERE post_id='$post_edit_id'";
     $update_movie=mysqli_query($connection,$update_query);
     if($update_movie){
-        echo "<script language=\"javascript\">window.location.href = posts.php</script>";
+        echo "<script language=\"javascript\">window.location.href = 'posts.php'</script>";
     }else{
         echo "failed";
     }
@@ -74,7 +74,7 @@ if(isset($_POST['btnupdate'])){
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-users"></i>
                                                 </div>
-                                                <input type="text" class="form-control" value="<?php echo $post_title ;?>" id="post_title" name="movie_title" placeholder="Movie Title" required>
+                                                <input type="text" class="form-control" value="<?php echo $post_title ;?>" id="post_title" name="post_title" placeholder="Movie Title" required>
                                             </div>
                                         </div>
                                     </div>
@@ -116,7 +116,7 @@ if(isset($_POST['btnupdate'])){
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-users"></i>
                                                 </div>
-                                                <input type="text" class="form-control" value="<?php echo $post_tage;?>" id="movie_tags" name="movie_tags" placeholder="Movie Tags" required>
+                                                <input type="text" class="form-control" value="<?php echo $post_tage;?>" id="movie_tags" name="post_tage" placeholder="Movie Tags" required>
                                             </div>
                                         </div>
                                     </div>
@@ -125,7 +125,7 @@ if(isset($_POST['btnupdate'])){
                                         <label for="dsc" class="col-sm-3 control-label" style="font-size: 16px;">Description</label>
 
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" rows="4" id="dsc" name="dsc" placeholder="Description"><?php echo $post_desc; ?></textarea>
+                                            <textarea class="form-control" rows="4" id="dsc" name="post_desc" placeholder="Description"><?php echo $post_desc; ?></textarea>
                                         </div>
                                     </div>
 

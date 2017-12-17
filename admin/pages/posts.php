@@ -1,8 +1,9 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <title>Post Management</title>
 <?php
-session_start();
+//session_start();
 //error_reporting(0);
 require_once "../includes/db.php";
 include 'include/function.php';
@@ -99,7 +100,7 @@ if($_SESSION['user_id'])
             });
             //Datemask dd/mm/yyyy
             //$("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
-          
+
             $('#datemask').datepicker();
         });
 

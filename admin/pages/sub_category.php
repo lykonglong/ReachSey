@@ -1,8 +1,11 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <title>Sub Categories Management</title>
 <?php
-session_start();
+//session_start();
 require_once "../includes/db.php";
 
 

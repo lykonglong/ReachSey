@@ -22,10 +22,17 @@
                         $post_link = $row_post['9'];
 
                         ?>
-                        <li class="item"><a href="detail.php?id=<?php echo $post_id;?>">
+                        <li class="item"><a href="page.php?action=detail&id=<?= $post_id; ?>">
                                 <img src="img/<?= $post_image; ?>" alt="<?= $post_image; ?>"/>
                                 <h3><?= $post_title; ?></h3>
-                                <p class="muted no-break-out"><?= $post_desc; ?></p></a>
+                                <p class="muted no-break-out">  <?php
+                                    if(strlen($post_desc)<=200){
+                                      echo $post_desc;
+                                    }else{
+                                      $shorten= substr($post_desc,0,200). '... ';
+                                      echo $shorten;
+                                    }
+                                ?></p></a>
                         </li>
                         <?php
                     }
@@ -53,7 +60,7 @@
 
                 ?>
                 <article class="excerpt">
-                    <div class="focus"><a href="detail.php?id=<?php echo $post_id;?>" class="thumbnail">
+                    <div class="focus"><a href="page.php?action=detail&id=<?= $post_id; ?>" class="thumbnail">
                             <img src="img/<?= $post_image; ?>" alt="<?= $post_title; ?>"/></a></div>
                     <header>
                         <a class="label label-important" href="detail.php?id=<?php echo $post_id;?>">
@@ -66,7 +73,7 @@
                             ?>
                             <i class="label-arrow"></i>
                         </a>
-                        <h2><a href="?action=detail&id=<?= $post_id; ?>"  title="<?= $post_title; ?>"><?= $post_title; ?></a></h2>
+                        <h2><a href="page/<?= $post_id; ?>"  title="<?= $post_title; ?>"><?= $post_title; ?></a></h2>
                     </header>
                     <p>
               <span class="muted"><i class="fa fa-user icon12"></i>

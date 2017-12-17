@@ -1,8 +1,11 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <title>Trash Movie Management</title>
 <?php
-session_start();
+//session_start();
 error_reporting(0);
 require_once "../../includes/db.php";
 include 'include/function.php';

@@ -5,11 +5,26 @@
 
               <h2 class="title">Poppulars</h2>
               <ul>
-                <li class="item"><a href="10/803953.html"><img src="img/King Arthur.jpg" alt="SolidWorks 2018 SP0.1 Full Premium Multilanguage x64" /><h3>SolidWorks 2018 SP0.1 Full Premium Multilanguage x64</h3></a></li>
-                <li class="item"><a href="10/803953.html"><img src="img/King Arthur.jpg" alt="SolidWorks 2018 SP0.1 Full Premium Multilanguage x64" /><h3>SolidWorks 2018 SP0.1 Full Premium Multilanguage x64</h3></a></li>
-                <li class="item"><a href="10/803953.html"><img src="img/King Arthur.jpg" alt="SolidWorks 2018 SP0.1 Full Premium Multilanguage x64" /><h3>SolidWorks 2018 SP0.1 Full Premium Multilanguage x64</h3></a></li>
-                <li class="item"><a href="10/803953.html"><img src="img/King Arthur.jpg" alt="SolidWorks 2018 SP0.1 Full Premium Multilanguage x64" /><h3>SolidWorks 2018 SP0.1 Full Premium Multilanguage x64</h3></a></li>
+                  <?php
+                  $select_query = "SELECT * FROM posts ORDER BY post_view DESC limit 6";
+                  $select_post=mysqli_query($connection,$select_query);
+                  while($row_post = mysqli_fetch_array($select_post)) {
+                      $post_id = $row_post['0'];
+                      $sub_cat_id = $row_post['1'];
+                      $user_id = $row_post['2'];
+                      $post_title = $row_post['3'];
+                      $post_image = $row_post['4'];
+                      $post_date = $row_post['5'];
+                      $post_view = $row_post['6'];
+                      $post_desc = $row_post['7'];
+                      $post_tage = $row_post['8'];
+                      $post_link = $row_post['9'];
 
+                      ?>
+                      <li class="item"><a href="page.php?action=detail&id=<?= $post_id; ?>"><img src="/img/<?= $post_image; ?>" alt="<?= $post_image; ?>"/><?= $post_title?></a></li>
+                      <?php
+                  }
+                  ?>
               </ul>
 
               <h2 class="title">Tags</h2>

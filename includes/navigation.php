@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.php">Navbar</a>
+    <a class="navbar-brand" href="/index.php">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,7 +38,7 @@
                         $sub_cat_id = $row['sub_cat_id'];
                         $sub_cat_name = $row['sub_cat_name'];
                         ?>
-                      <li><a href="category.php?id=<?php echo $sub_cat_id;?>&name=<?php echo $sub_cat_name ?>"><?php echo $sub_cat_name ?></a></li>
+                      <li><a href="/category.php?id=<?php echo $sub_cat_id;?>&name=<?php echo $sub_cat_name ?>"><?php echo $sub_cat_name ?></a></li>
                       <?php } ?>
                   </ul>
               </li>

@@ -21,7 +21,7 @@
                       $post_link = $row_post['9'];
 
                       ?>
-                      <li class="item"><a href="page.php?action=detail&id=<?= $post_id; ?>"><img src="/img/<?= $post_image; ?>" alt="<?= $post_image; ?>"/><?= $post_title?></a></li>
+                      <li class="item"><a href="/page/<?= $post_id; ?>"><img src="/img/<?= $post_image; ?>" alt="<?= $post_image; ?>"/><?= $post_title?></a></li>
                       <?php
                   }
                   ?>

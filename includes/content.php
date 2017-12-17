@@ -22,8 +22,8 @@
                         $post_link = $row_post['9'];
 
                         ?>
-                        <li class="item"><a href="page.php?action=detail&id=<?= $post_id; ?>">
-                                <img src="img/<?= $post_image; ?>" alt="<?= $post_image; ?>"/>
+                        <li class="item"><a href="page/<?= $post_id; ?>">
+                                <img src="/img/<?= $post_image; ?>" alt="<?= $post_image; ?>"/>
                                 <h3><?= $post_title; ?></h3>
                                 <p class="muted no-break-out">  <?php
                                     if(strlen($post_desc)<=200){

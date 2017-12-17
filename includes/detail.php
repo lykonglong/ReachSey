@@ -47,8 +47,14 @@
               while($row_user = mysqli_fetch_array($select_user)) {
                    $name = $row_user['name'];
               }
+//UPDATE `posts` SET `post_view`='1' WHERE (`post_id`='10') LIMIT 1
+
 
           }
+          $add_view = $post_view + 1;
+          $query_update_view = "update posts set post_view = $add_view where post_id=$post_id";
+          $view_update=mysqli_query($connection,$query_update_view);
+
       }
 
   ?>
@@ -66,7 +72,7 @@
                     <span class="muted"><a href="category.php?id=<?= $sub_cat_id ?>&name=<?= $sub_cat_name ?>"><i class="fa fa-list icon12"></i> &nbsp;<?php echo $sub_cat_name; ?></a></span>
                     <span class="muted"><i class="fa fa-user icon12"></i> <a href="#"><?php echo $name;?></a></span>
                     <time class="muted"><i class="fa fa-clock-o icon12"></i>&nbsp;<?php echo $post_date; ?></time>
-                    <span class="muted"><i class="fa fa-eye icon12"></i> <a href="#"><?php echo $post_view;?></a></span> </div>
+                    <span class="muted"><i class="fa fa-eye icon12"></i> <?php echo $post_view;?></span> </div>
             </header>
             <article class="article-content">
               <p><img class="aligncenter" src="/img/<?= $post_image ?>" alt="<?= $post_title ?>"></p>

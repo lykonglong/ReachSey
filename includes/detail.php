@@ -1,9 +1,3 @@
-
-
-<style>
-
-</style>
-  <body>
   <?php
     if(isset($_GET['id'])){
         $post_id=mysqli_real_escape_string($connection,$_GET['id']);
@@ -55,10 +49,19 @@
           $query_update_view = "update posts set post_view = $add_view where post_id=$post_id";
           $view_update=mysqli_query($connection,$query_update_view);
 
+
       }
 
   ?>
 
+  <SCRIPT LANGUAGE="JAVASCRIPT">
+  <!--
+  function UpdateTitle()
+  {
+  	document.title = "Test";
+  }
+  </SCRIPT>
+    <body>
     <main role="main" class="container">
 
       <div class=" row row-offcanvas row-offcanvas-right">

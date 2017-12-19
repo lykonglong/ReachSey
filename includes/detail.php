@@ -54,7 +54,17 @@
 
   ?>
 
+<<<<<<< HEAD
 
+=======
+  <SCRIPT LANGUAGE="JAVASCRIPT">
+  <!--
+  function UpdateTitle()
+  {
+  	document.title = "Test";
+  }
+  </SCRIPT>
+>>>>>>> fb7a624a550b91233df3237c23c627ddf4037795
     <body>
     <main role="main" class="container">
 

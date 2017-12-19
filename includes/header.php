@@ -14,8 +14,13 @@
     <script src="https://use.fontawesome.com/41cd343be6.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<<<<<<< HEAD
    <meta name="description" content="Reachsey,Download下载 Cracked 已付费 破解注册 安装,免费" />
 <meta name="keywords" content="pro/e,UG,CAD,CAM,CAE,EDA,MacOSX,Android,games,movies,music,音乐,电影,游戏,破解版,注册版,已付费,KeyGen,Crack,Siemens,NX,SolidWorks,AutoCAD,CATIA,Solid Edge,Cimatron,PowerMILL,MasterCAM,ANSYS,TopSolid,MSC" />
+=======
+    <meta name="description" content="">
+    <meta name="author" content="">
+>>>>>>> fb7a624a550b91233df3237c23c627ddf4037795
     <?php
     if(isset($_GET['id'])){
         $post_id=mysqli_real_escape_string($connection,$_GET['id']);

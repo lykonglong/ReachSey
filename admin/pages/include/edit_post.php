@@ -12,7 +12,9 @@ if(isset($_GET['edit'])){
         $post_image = $row['post_image'];
         $post_desc = $row['post_desc'];
         $post_date_db = $row['post_date'];
-        $post_date = date("d-m-Y", strtotime($post_date_db));
+        $datesort_db= str_replace('-', '/',"$post_date_db");
+        $post_date = date("m-d-Y", strtotime($datesort_db));
+
 
         $post_tage = $row['post_tage'];
         $down_link = $row['down_link'];
@@ -38,14 +40,17 @@ if(isset($_POST['btnupdate'])){
 
     $new_post_desc=mysqli_real_escape_string($connection,mb_convert_encoding($_POST['post_desc'],"UTF-8","auto") );
 
-    $new_post_date=mysqli_real_escape_string($connection,$_POST['post_date']);
-    $datesort= str_replace('/', '-', "$new_post_date");
-    $new_post_date_insert= date('Y-m-d',strtotime($datesort));
+    $edit_post_date=mysqli_real_escape_string($connection,$_POST['post_date']);
+    $edit_datesort= str_replace('/', '-',"$edit_post_date");
+    $edit_date_insert= date('Y-m-d', strtotime($edit_datesort));
+
+    //echo $post_date;
 
     $new_post_tage=mysqli_real_escape_string($connection,$_POST['post_tage']);
     $new_down_link=mysqli_real_escape_string($connection,$_POST['down_link']);
 
-    $update_query="UPDATE posts SET sub_cat_id='$new_sub_cat_id', post_title='$new_post_title', post_image='$new_post_image',post_desc='$new_post_desc',post_date='$new_post_date_insert',post_tage='$new_post_tage',down_link='$new_down_link' WHERE post_id='$post_edit_id'";
+    $update_query="UPDATE posts SET sub_cat_id='$new_sub_cat_id', post_title='$new_post_title', post_image='$new_post_image',post_desc='$new_post_desc',post_date='$edit_date_insert',post_tage='$new_post_tage',down_link='$new_down_link' WHERE post_id='$post_edit_id'";
+    //echo $update_query;
     $update_movie=mysqli_query($connection,$update_query);
     if($update_movie){
         echo "<script language=\"javascript\">window.location.href = 'posts.php'</script>";
@@ -106,7 +111,7 @@ if(isset($_POST['btnupdate'])){
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-users"></i>
                                                 </div>
-                                                <input type="text" class="form-control" value="<?php echo $post_date;?>" id="datemask" name="post_date" placeholder="Release Date" required>
+                                                <input type="date" class="form-control" value="<?php echo $post_date_db;?>"  name="post_date" placeholder="Release Date" required>
                                             </div>
                                         </div>
                                     </div>

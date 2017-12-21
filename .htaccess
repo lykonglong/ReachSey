@@ -6,4 +6,4 @@ RewriteRule ^index?$ index.php
 
 
 RewriteRule ^page/([0-9a-z]+) page.php?action=detail&id=$1
-RewriteRule ^category/([0-9a-z]+) page.php?action=category&id=$1
+RewriteRule ^category/([0-9a-z]+)/([0-9a-zA-Z]+) category.php?action=sub&id=$1&name=$2

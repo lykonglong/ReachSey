@@ -60,10 +60,10 @@
 
                 ?>
                 <article class="excerpt">
-                    <div class="focus"><a href="page.php?action=detail&id=<?= $post_id; ?>" class="thumbnail">
+                    <div class="focus"><a href="page/<?= $post_id; ?>" class="thumbnail">
                             <img src="img/<?= $post_image; ?>" alt="<?= $post_title; ?>"/></a></div>
                     <header>
-                        <a class="label label-important" href="detail.php?id=<?php echo $post_id;?>">
+                        <a class="label label-important" href="page/<?php echo $post_id;?>">
                             <?php
                             $query_sub_cat = "SELECT * FROM sub_categories WHERE sub_cat_id=$sub_cat_id";
                             $select_sub_cat=mysqli_query($connection,$query_sub_cat);

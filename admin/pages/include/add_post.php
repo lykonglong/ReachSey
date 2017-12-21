@@ -145,7 +145,7 @@ $user_role = $_SESSION['user_role'];
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-calendar"></i>
                                                 </div>
-                                                <input type="date" class="form-control" value=""  name="post_date" placeholder="Release Date" required>
+                                                <input type="text" class="form-control" value="" id="datemask" name="post_date" placeholder="Release Date" required>
                                             </div>
                                         </div>
                                     </div>

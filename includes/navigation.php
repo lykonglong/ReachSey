@@ -38,7 +38,7 @@
                         $sub_cat_id = $row['sub_cat_id'];
                         $sub_cat_name = $row['sub_cat_name'];
                         ?>
-                      <li><a href="/sub_category.php?id=<?php echo $sub_cat_id;?>&name=<?php echo $sub_cat_name ?>"><?php echo $sub_cat_name ?></a></li>
+                      <li><a href="/category/<?php echo $sub_cat_id;?>/<?php echo $sub_cat_name ?>"><?php echo $sub_cat_name ?></a></li>
                       <?php } ?>
                   </ul>
               </li>

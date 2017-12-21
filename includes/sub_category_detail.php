@@ -28,10 +28,10 @@
 
                 ?>
                 <article class="excerpt">
-                    <div class="focus"><a href="?action=detail&id=<?= $post_id; ?>" class="thumbnail">
-                            <img src="img/<?= $post_image; ?>" alt="<?= $post_title; ?>"/></a></div>
+                    <div class="focus"><a href="/page/<?= $post_id; ?>" class="thumbnail">
+                            <img src="/img/<?= $post_image; ?>" alt="<?= $post_title; ?>"/></a></div>
                     <header>
-                        <a class="label label-important" href="#">
+                        <a class="label label-important" href="/page/<?= $post_id; ?>">
                             <?php
                             $query_sub_cat = "SELECT * FROM sub_categories WHERE sub_cat_id=$sub_cat_id";
                             $select_sub_cat=mysqli_query($connection,$query_sub_cat);
@@ -41,7 +41,7 @@
                             ?>
                             <i class="label-arrow"></i>
                         </a>
-                        <h2><a href="?action=detail&id=<?= $post_id; ?>" title="<?= $post_title; ?>"><?= $post_title; ?></a></h2>
+                        <h2><a href="/page/<?= $post_id; ?>" title="<?= $post_title; ?>"><?= $post_title; ?></a></h2>
                     </header>
                     <p>
                 <span class="muted"><i class="fa fa-user icon12"></i>

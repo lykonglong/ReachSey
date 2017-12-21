@@ -28,7 +28,7 @@
             <!--          <li class="nav-item">-->
             <!--            <a class="nav-link disabled" href="#">Disabled</a>-->
             <!--          </li>-->
-            <li><a href="/category/<?php echo $cat_id;?>"><?php echo $cat_name ?></a>
+            <li><a href="/category/<?php echo "$cat_name/$cat_id";?>"><?php echo $cat_name ?></a>
                   <ul class="submenu">
                     <?php
                     $query = " SELECT * FROM sub_categories WHERE cat_id = $cat_id ";

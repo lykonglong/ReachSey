@@ -66,7 +66,7 @@
             <header class="article-header">
                 <h1 class="article-title"><a href="#"><?php echo $post_title;?></a></h1>
                 <div class="meta">
-                    <span class="muted"><a href="category.php?id=<?= $sub_cat_id ?>&name=<?= $sub_cat_name ?>"><i class="fa fa-list icon12"></i> &nbsp;<?php echo $sub_cat_name; ?></a></span>
+                    <span class="muted"><a href="/category/<?= $sub_cat_id ?>/<?= $sub_cat_name ?>"><i class="fa fa-list icon12"></i> &nbsp;<?php echo $sub_cat_name; ?></a></span>
                     <span class="muted"><i class="fa fa-user icon12"></i> <a href="#"><?php echo $name;?></a></span>
                     <time class="muted"><i class="fa fa-clock-o icon12"></i>&nbsp;<?php echo $post_date; ?></time>
                     <span class="muted"><i class="fa fa-eye icon12"></i> <?php echo $post_view;?></span> </div>

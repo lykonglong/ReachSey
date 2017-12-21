@@ -12,3 +12,5 @@
 <script src="/js/popper.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/offcanvas.js"></script>
+<script src="js/rAF.js"></script>
+<script src="js/demo-2.js"></script>

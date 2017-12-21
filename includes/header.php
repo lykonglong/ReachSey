@@ -58,4 +58,3 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/offcanvas.css" rel="stylesheet">
-</head>

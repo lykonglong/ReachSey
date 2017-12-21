@@ -10,18 +10,16 @@
             </h2>
             <?php
             $id = $_GET['id'];
-            $prepare_statement = $connection->prepare("SELECT * FROM sub_categories WHERE cat_id=?");
+            $prepare_statement = $connection->prepare("SELECT * FROM reachsey.posts
+            INNER JOIN reachsey.sub_categories ON reachsey.posts.sub_cat_id = reachsey.sub_categories.sub_cat_id
+            INNER JOIN reachsey.categories ON reachsey.categories.cat_id = reachsey.sub_categories.cat_id
+            WHERE
+            reachsey.categories.cat_id = ?");
             $prepare_statement->bind_param("s",$id);
             $prepare_statement->execute();
             $select_post = $prepare_statement->get_result();
 
-            while($row_sub_cat= $select_post->fetch_assoc()){
-                    $sub_cat_id = $row_sub_cat['sub_cat_id'];
-                    $sub_cat_name = $row_sub_cat['sub_cat_name'];
 
-
-                    $query_post = "SELECT * FROM posts WHERE sub_cat_id = $sub_cat_id ORDER BY post_id DESC";
-                    $select_post = mysqli_query($connection, $query_post);
                     while ($row_post = mysqli_fetch_assoc($select_post)) {
                         $post_id = $row_post['post_id'];
                         $sub_cat_id = $row_post['sub_cat_id'];
@@ -36,10 +34,10 @@
 
                         ?>
                         <article class="excerpt">
-                            <div class="focus"><a href="?action=detail&id=<?= $post_id; ?>" class="thumbnail">
-                                    <img src="img/<?= $post_image; ?>" alt="<?= $post_title; ?>"/></a></div>
+                            <div class="focus"><a href="/page/<?= $post_id; ?>" class="thumbnail">
+                                    <img src="/img/<?= $post_image; ?>" alt="<?= $post_title; ?>"/></a></div>
                             <header>
-                                <a class="label label-important" href="#">
+                                <a class="label label-important" href="/page/<?= $post_id; ?>">
                                     <?php
                                     $query_sub_cat = "SELECT * FROM sub_categories WHERE sub_cat_id=$sub_cat_id";
                                     $select_sub_cat = mysqli_query($connection, $query_sub_cat);
@@ -49,7 +47,7 @@
                                     ?>
                                     <i class="label-arrow"></i>
                                 </a>
-                                <h2><a href="?action=detail&id=<?= $post_id; ?>"
+                                <h2><a href="/page/<?= $post_id; ?>"
                                        title="<?= $post_title; ?>"><?= $post_title; ?></a></h2>
                             </header>
                             <p>
@@ -94,7 +92,7 @@
                         </article>
                         <?php
                     }
-            }
+
             ?>
 
         </div><!--/span-->

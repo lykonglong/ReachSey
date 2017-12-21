@@ -6,6 +6,7 @@
         text-overflow: ellipsis;
     }
 </style>
+</head>
   <body>
 
   <?php include "includes/navigation.php" ?>

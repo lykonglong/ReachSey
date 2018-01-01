@@ -109,6 +109,28 @@ ul, ol {
     max-width: 100px;
     max-height: 70px;
 }
+.pagination1 {
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+}
+.pagination1 ul {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    margin-left: 0;
+    margin-bottom: 0;
+}
+.pagination1 ul > li {
+    display: inline;
+}
+
+.pagination1 ul>li>a,.pagination1 ul>li>span{margin:0 1px;float:left;padding:4px 12px 3px;line-height:20px;text-decoration:none;background-color:#eee;color:#666}
+.pagination1 ul>li>a:hover,.pagination1 ul>li>a:focus{background-color:#ccc;color:#444}
+.pagination1 ul>.active>a,.pagination1 ul>.active>span{background-color:#428BCA;color:#fff}
+.pagination1 ul>.active>a,.pagination1 ul>.active>span{cursor:default}
+.pagination1 ul>li>span,.pagination1 ul>.disabled>span,.pagination1 ul>.disabled>a,.pagination1 ul>.disabled>a:hover,.pagination1 ul>.disabled>a:focus{color:#999999;background-color:transparent;cursor:default}
+
 .d_tags {
     padding: 12px 10px 15px 10px;
 }

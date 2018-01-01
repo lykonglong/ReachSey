@@ -43,8 +43,11 @@
 
 
             <h2 class="title">New Posts</h2>
+            <div id="load_data">
+
             <?php
-            $select_query = "SELECT * FROM posts where post_status=1 ORDER BY post_id DESC";
+
+            $select_query = "SELECT * FROM posts where post_status=1 ORDER BY post_id DESC limit 5";
             $select_post=mysqli_query($connection,$select_query);
             while($row_post = mysqli_fetch_array($select_post)) {
                 $post_id = $row_post['0'];
@@ -59,11 +62,11 @@
                 $post_link = $row_post['9'];
 
                 ?>
-                <article class="excerpt">
-                    <div class="focus"><a href="page.php?action=detail&id=<?= $post_id; ?>" class="thumbnail">
+                <article class="excerpt" >
+                    <div class="focus"><a href="page/<?= $post_id; ?>" class="thumbnail">
                             <img src="img/<?= $post_image; ?>" alt="<?= $post_title; ?>"/></a></div>
                     <header>
-                        <a class="label label-important" href="detail.php?id=<?php echo $post_id;?>">
+                        <a class="label label-important" href="page/<?php echo $post_id;?>">
                             <?php
                             $query_sub_cat = "SELECT * FROM sub_categories WHERE sub_cat_id=$sub_cat_id";
                             $select_sub_cat=mysqli_query($connection,$query_sub_cat);
@@ -118,5 +121,9 @@
                 <?php
             }
             ?>
-
+            <div id="remove_row">
+              <br />
+            <button type="button" name="btn_more"  data-pid="<?php echo $post_id; ?>" id="btn_more" class="btn btn-default form-control">Load More</button>
+            </div>
+</div>
         </div><!--/span-->

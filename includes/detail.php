@@ -61,7 +61,7 @@
       <div class=" row row-offcanvas row-offcanvas-right">
 
         <div class="col-12 col-md-9">
-              <div class="breadcrumbs"><a href="/index"><i class="fa fa-home" aria-hidden="true" ></a></i>&nbsp;<small>&gt;</small> <span class="muted"><?php echo $cat_name;?></span> <small>&gt;</small><span class="muted"><?php echo $sub_cat_name;?></span><small>&gt;</small> <span class="muted"><?php echo $post_title;?> </span></div>
+              <div class="breadcrumbs"><a href="/index"><i class="fa fa-home" aria-hidden="true" ></a></i>&nbsp;<small>&gt;</small> <a href="/category/<?php echo $cat_name ."/". $cat_id;?>"<span class="muted"><?php echo $cat_name;?></span> </a><small>&gt;</small><a href="/category/<?php echo $sub_cat_id ."/". $sub_cat_name;?>"><span class="muted"><?php echo $sub_cat_name;?></span></a><small>&gt;</small> <span class="muted"><?php echo $post_title;?> </span></div>
             <!-- <h2 class="title">Detail Page</h2> -->
             <header class="article-header">
                 <h1 class="article-title"><a href="#"><?php echo $post_title;?></a></h1>

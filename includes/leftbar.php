@@ -29,14 +29,20 @@
 
               <h2 class="title">Tags</h2>
               <div class="d_tags">
-                  <a  href="tags8f8b.html?/%D7%DB%BA%CF%BD%CC%B3%CC/"> 3D Animation (127) </a>
-                  <a  href="tags8f8b.html?/%D7%DB%BA%CF%BD%CC%B3%CC/"> Photoshop (44) </a>
-                  <a  href="tags8f8b.html?/%D7%DB%BA%CF%BD%CC%B3%CC/"> Windows (13) </a>
-                  <a  href="tags8f8b.html?/%D7%DB%BA%CF%BD%CC%B3%CC/"> Udemy (20) </a>
-                  <a  href="tags8f8b.html?/%D7%DB%BA%CF%BD%CC%B3%CC/"> Lynda (50) </a>
-                  <a  href="tags8f8b.html?/%D7%DB%BA%CF%BD%CC%B3%CC/"> Plural Sight (200) </a>
-                  <a  href="tags8f8b.html?/%D7%DB%BA%CF%BD%CC%B3%CC/"> Tutorials (1500) </a>
-                  <a  href="tags8f8b.html?/%D7%DB%BA%CF%BD%CC%B3%CC/"> Design (200) </a>
+              <?php
+              $query = " SELECT * FROM sub_categories ";
+              $select_all_sub_category = mysqli_query($connection,$query);
+
+              while ($row = mysqli_fetch_assoc($select_all_sub_category)){
+                  $sub_cat_id = $row['sub_cat_id'];
+                  $sub_cat_name = $row['sub_cat_name'];
+                  ?>
+                  <a  href="/category/<?php echo $sub_cat_id;?>/<?php echo $sub_cat_name ?>"><?php echo $sub_cat_name ?></a>
+
+                <?php } ?>
+
+
+            
               </div>
         </div>
 

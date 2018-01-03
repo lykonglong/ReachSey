@@ -123,7 +123,7 @@
                                 <td style="line-height: 30px;font-size:;"><?php echo $n; ?></td>
                                 <td style="line-height: 30px;font-size:;"><?php echo $cat_name; ?></td>
 
-                                <td align="center" style="line-height: 30px;font-size:;" ><a href="category.php?action=edit_category&cat_id=<?php echo $cat_id; ?>" class="btn btn-success btn-flat btn-sm"><i class="fa fa-edit"></i> Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?delete=<?php echo $cat_id;?>" onclick="return confirm('Are your sure?')" class="btn btn-danger btn-flat btn-sm"><i class="fa fa-trash-o"></i> Delete</a></td>
+                                <td align="center" style="line-height: 30px;font-size:;" ><a href="category.php?action=edit_category&cat_id=<?php echo $cat_id; ?>" class="btn btn-success btn-flat btn-sm"><i class="fa fa-edit"></i> Edit</a></td>
                             </tr>
                             <?php
                             $n--;
@@ -140,15 +140,15 @@
                         </tfoot>
                     </table>
                     <!--delete video from table video_post by id-->
-                    <?php
-                    if(isset($_GET['delete'])){
-                        $this_cat_id=$_GET['delete'];
-                        echo $this_cat_id;
-                        $query="delete from categories where cat_id = '$this_cat_id'";
-                        $delete_query=mysqli_query($connection,$query);
-                        header("Location: category.php");
-                    }
-                    ?>
+<!--                    --><?php
+//                    if(isset($_GET['delete'])){
+//                        $this_cat_id=$_GET['delete'];
+//                        echo $this_cat_id;
+//                        $query="delete from categories where cat_id = '$this_cat_id'";
+//                        $delete_query=mysqli_query($connection,$query);
+//                        header("Location: category.php");
+//                    }
+//                    ?>
                 </div>
                 <!-- /.box-body -->
             </div>

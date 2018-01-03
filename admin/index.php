@@ -35,8 +35,17 @@ include 'pages/include/function.php';
       {
           $user_name=mysqli_real_escape_string($connection,$_POST['user_name']);
           $user_password=mysqli_real_escape_string($connection,$_POST['user_password']);
-          $select_user="SELECT * FROM users";
-          $run_user=mysqli_query($connection,$select_user);
+           $encrypted_pass = encryptIt($user_password);
+
+
+          $prepare_statement = $connection->prepare ("SELECT * FROM users WHERE user_name = ?") ;
+          $prepare_statement->bind_param("s",$user_name);
+          $prepare_statement->execute();
+          $run_user = $prepare_statement->get_result();
+          if(!$run_user){
+              die("QUERY FAILED". mysqli_error($connection));
+          }
+
           $row_count=mysqli_num_rows($run_user);
           if($row_count > 0)
           {
@@ -47,8 +56,8 @@ include 'pages/include/function.php';
                   $dbuser_pass=$row_user['user_password'];
 //                  $decrypted = decryptIt($dbuser_pass);
                   $dbuser_role = $row_user['user_role'];
-                  if($user_name==$dbuser_name) {
-                      if ($user_password == $dbuser_pass) {
+                  if($user_name==$dbuser_name ) {
+                      if ($dbuser_pass == $encrypted_pass) {
                           $_SESSION['user_id'] = $dbuser_id;
                           $_SESSION['user_name'] = $dbuser_name;
                           $_SESSION['user_role'] = $dbuser_role;

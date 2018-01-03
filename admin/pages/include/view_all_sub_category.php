@@ -130,26 +130,42 @@ include "function.php"
                         </thead>
                         <tbody>
                         <?php
-                        $query="select * from sub_categories";
-                        $select_category=mysqli_query($connection,$query);
-                        $n = mysqli_num_rows($select_category);
-                        while($row = mysqli_fetch_assoc($select_category)){
-                            $sub_cat_id= $row['sub_cat_id'];
-                            $sub_cat_name= $row['sub_cat_name'];
-                            $cat_id= $row{'cat_id'};
 
-                            ?>
-                            <tr>
-                                <td hidden><?php echo $sub_cat_id; ?></td>
-                                <td style="line-height: 30px;font-size:;"><?php echo $n; ?></td>
-                                <td style="line-height: 30px;font-size:;"><?php echo $sub_cat_name; ?></td>
-                                <td style="line-height: 30px;font-size:;"><?php echo $cat_id; ?></td>
+                            $query = "select * from  	sub_categories   ";
+                            $select_sub_category = mysqli_query($connection, $query);
+                            $n = mysqli_num_rows($select_sub_category);
+                            while ($row = mysqli_fetch_assoc($select_sub_category)) {
+                                $sub_cat_id = $row['sub_cat_id'];
+                                $sub_cat_name = $row['sub_cat_name'];
+                                $cat_id = $row{'cat_id'};
 
-                                <td align="center" style="line-height: 30px;font-size:;" ><a href="sub_category.php?action=edit_sub_category&sub_cat_id=<?php echo $sub_cat_id; ?>" class="btn btn-success btn-flat btn-sm"><i class="fa fa-edit"></i> Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="sub_category.php?delete=<?php echo $sub_cat_id;?>" onclick="return confirm('Are your sure?')" class="btn btn-danger btn-flat btn-sm"><i class="fa fa-trash-o"></i> Delete</a></td>
-                            </tr>
-                            <?php
-                            $n--;
-                        }
+                                $query="select * from categories where cat_id = $cat_id ";
+                                $select_category=mysqli_query($connection,$query);
+                                while($row = mysqli_fetch_assoc($select_category)) {
+                                    $cat_id = $row['cat_id'];
+                                    $cat_name = $row['cat_name'];
+
+                                }
+                                ?>
+                                <tr>
+                                    <td hidden><?php echo $sub_cat_id; ?></td>
+                                    <td style="line-height: 30px;font-size:;"><?php echo $n; ?></td>
+                                    <td style="line-height: 30px;font-size:;"><?php echo $sub_cat_name; ?></td>
+                                    <td style="line-height: 30px;font-size:;"><?php echo $cat_name;?></td>
+
+                                    <td align="center" style="line-height: 30px;font-size:;"><a
+                                            href="sub_category.php?action=edit_sub_category&sub_cat_id=<?php echo $sub_cat_id; ?>"
+                                            class="btn btn-success btn-flat btn-sm"><i class="fa fa-edit"></i> Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                                            href="sub_category.php?delete=<?php echo $sub_cat_id; ?>"
+                                            onclick="return confirm('Are your sure?')"
+                                            class="btn btn-danger btn-flat btn-sm"><i class="fa fa-trash-o"></i> Delete</a>
+                                    </td>
+                                </tr>
+                                <?php
+                                $n--;
+
+                            }
+
                         ?>
                         </tbody>
                         <tfoot>
@@ -167,9 +183,10 @@ include "function.php"
                     if(isset($_GET['delete'])){
                         $this_cat_id=$_GET['delete'];
                         echo $this_cat_id;
-                        $query="delete from categories where cat_id = '$this_cat_id'";
+                        $query="delete from sub_categories where sub_cat_id = '$this_cat_id'";
                         $delete_query=mysqli_query($connection,$query);
-                        header("Location: category.php");
+                        //header("Location: sub_category.php");
+                        echo "<script language=\"javascript\">window.location.href = \"sub_category.php\"</script>";
                     }
                     ?>
                 </div>

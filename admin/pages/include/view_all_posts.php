@@ -173,6 +173,7 @@
 							var dataTable = $('#movie_ser').DataTable( {
 								"processing": true,
 								"serverSide": true,
+                "order": [[ 0, 'desc' ], [ 1, 'asc' ]],
 								"ajax":{
 									url :"include/fetch_all_movies.php", // json datasource
 									type: "post",  // method  , by default get
@@ -194,7 +195,7 @@
                         $trash ="UPDATE posts SET post_status='0' WHERE post_id=$trash_id";
                         $run_trash=mysqli_query($connection,$trash);
                         if($run_trash){
-                            echo "<script language=\"javascript\">window.location.href = posts.php/script>";
+                            echo "<script language=\"javascript\">window.location.href = \"posts.php\"</script>";
                         }
                     }elseif (isset($_GET['suggestion'])) {
                       # code...
@@ -202,7 +203,7 @@
                       $trash ="UPDATE posts SET post_suggestion='1' WHERE post_id=$suggestion_id";
                       $run_suggestion=mysqli_query($connection,$trash);
                       if($run_suggestion){
-                          echo "<script language=\"javascript\">window.location.href = posts.php/script>";
+                          echo "<script language=\"javascript\">window.location.href = \"posts.php\"</script>";
                       }
                     }elseif (isset($_GET['desuggestion'])) {
                       # code...
@@ -210,7 +211,7 @@
                       $trash ="UPDATE posts SET post_suggestion='0' WHERE post_id=$suggestion_id";
                       $run_suggestion=mysqli_query($connection,$trash);
                       if($run_suggestion){
-                          echo "<script language=\"javascript\">window.location.href = posts.php/script>";
+                          echo "<script language=\"javascript\">window.location.href = \"posts.php\"</script>";
                       }
                     }
                     ?>

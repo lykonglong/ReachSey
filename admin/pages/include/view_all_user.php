@@ -30,10 +30,10 @@ $user_role = $_SESSION['user_role'];
              $user_role=mysqli_real_escape_string($connection,$_POST['user_role']);
              $user_password=mysqli_real_escape_string($connection,$_POST['user_password']);
 
-//            $encrypted = encryptIt( $password );
+            $encrypted = encryptIt( $user_password );
             
 
-            $insert_user ="Insert into users(user_name,name,user_email,user_role,user_password) VALUES ('$user_name','$name','$user_email','$user_role','$user_password')";
+            $insert_user ="Insert into users(user_name,name,user_email,user_role,user_password) VALUES ('$user_name','$name','$user_email','$user_role','$encrypted')";
             $create_user=mysqli_query($connection,$insert_user);
         }
         ?>

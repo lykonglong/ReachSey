@@ -59,6 +59,7 @@
                             $post_date= $row['post_date'];
                             $post_tage= $row['post_tage'];
                             $status= $row['post_status'];
+                            $post_view= $row['post_view'];
 
 
 
@@ -72,21 +73,23 @@
                                 <td style="line-height: 30px;font-size:;"><?php echo $post_id;?></td>
                                 <td style="line-height: 30px;font-size:;"><?php echo $post_title;?></td>
                                 <td style="line-height: 30px;font-size:;"><?php echo $cate_name;?></td>
+                                <td style="line-height: 30px;font-size:;"><?php echo $post_view;?></td>
 
-                                <!--<td style="line-height: 30px;font-size:;text-align: center;">
-                                    <?php
-/*                                    if($post_status=='Draft')
-                                    {
-                                        echo "<a href=\"posts.php?publish_id=$post_id \" onclick=\"return confirm('Do you want to publish this post?')\" class=\"btn btn-success btn-flat btn-sm\"><i class=\"fa fa-eye\"></i> Publish</a>";
-                                    }
-                                    elseif($post_status=='Publish')
-                                    {
-                                        echo "<a href=\"posts.php?draft_id=$post_id \" onclick=\"return confirm('Do you want to set this post to draft?')\" class=\"btn btn-danger btn-flat btn-sm\"><i class=\"fa fa-eye-slash\"></i> Draft</a>";
-                                    }
-                                    */?>
+<!--                                <td style="line-height: 30px;font-size:;text-align: center;">-->
+<!--                                    --><?php
+//                                    if($post_status=='Draft')
+//                                    {
+//                                        echo "<a href=\"posts.php?publish_id=$post_id \" onclick=\"return confirm('Do you want to publish this post?')\" class=\"btn btn-success btn-flat btn-sm\"><i class=\"fa fa-eye\"></i> Publish</a>";
+//                                    }
+//                                    elseif($post_status=='Publish')
+//                                    {
+//                                        echo "<a href=\"posts.php?draft_id=$post_id \" onclick=\"return confirm('Do you want to set this post to draft?')\" class=\"btn btn-danger btn-flat btn-sm\"><i class=\"fa fa-eye-slash\"></i> Draft</a>";
+//                                    }
+//                                    ?>
+<!---->
+<!--                                </td>-->
 
-                                </td>-->
-                                <td align="center"><img src="<?php echo BASE_URL; ?>../../img/<?php echo $post_image;?>" class="img-responsive" alt="<?php echo $post_image;?>" style="height: 40px;"></td>
+                                <td align="center"><img src="/img/<?php echo $post_image;?>" class="img-responsive" alt="<?php echo $post_image;?>" style="height: 40px;"></td>
                                 <td align="center" style="line-height: 30px;font-size:;" >
                                     <a href="trash.php?action=view_movie&view=<?php echo $post_id; ?>" class="btn btn-info btn-flat btn-sm"><i class="fa fa-eye"></i> View</a>&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="trash.php?restore=<?php echo $post_id; ?>" onclick="return confirm('Are your sure?')" class="btn btn-success btn-flat btn-sm"><i class="fa fa-edit"></i> Restore</a>&nbsp;&nbsp;&nbsp;&nbsp;

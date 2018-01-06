@@ -37,7 +37,6 @@ include 'pages/include/function.php';
           $user_password=mysqli_real_escape_string($connection,$_POST['user_password']);
            $encrypted_pass = encryptIt($user_password);
 
-
           $prepare_statement = $connection->prepare ("SELECT * FROM users WHERE user_name = ?") ;
           $prepare_statement->bind_param("s",$user_name);
           $prepare_statement->execute();
